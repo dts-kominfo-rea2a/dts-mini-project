@@ -1,0 +1,42 @@
+import React from 'react'
+import {
+    AppBar, 
+    Container, 
+    Toolbar, 
+    Typography,
+    Box
+  } from '@mui/material';
+
+const Navbar = () => {
+  return (
+        <AppBar position="static">
+            <Container maxWidth="xl">
+                <Toolbar disableGutters>
+                    <Typography
+                    variant="h6"
+                    noWrap
+                    component="a"
+                    href="/"
+                    sx={{
+                        mr: 2,
+                        display: { md: 'flex' },
+                        fontFamily: 'monospace',
+                        fontWeight: 700,
+                        letterSpacing: '.3rem',
+                        color: 'inherit',
+                        textDecoration: 'none',
+                    }}
+                    >
+                    LOGO
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex' }, justifyContent:'space-between' }}>
+                    <Typography textAlign="center">Home</Typography>
+                    <Typography textAlign="center">Logout</Typography>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
+  )
+}
+
+export default Navbar

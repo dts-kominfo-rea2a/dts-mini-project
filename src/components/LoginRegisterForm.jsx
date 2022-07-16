@@ -3,8 +3,10 @@ import styles from "./LoginRegisterForm.module.css";
 import { Grid, Box, Button, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { auth, loginDenganEmailDanPassword, registerDenganEmailDanPassword, resetPassword } from "../authentication/firebase";
+import { auth, googleSignIn, loginDenganEmailDanPassword, registerDenganEmailDanPassword, resetPassword } from "../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { GoogleButton } from "react-google-button";
+
 const LoginOrRegisterForm = ({ loginOrRegister }) => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
@@ -52,6 +54,14 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
     await resetPassword(credential.email);
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     if (loading) {
       return;
@@ -85,6 +95,11 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           </Button>
         ) : null}
 
+        <Typography varian="body1" textAlign={"center"}>
+          Or
+        </Typography>
+
+        <GoogleButton onClick={handleGoogleSignIn} />
         {loginOrRegister === "login" ? (
           <Link to="/register">
             <Typography variant="body1">or do you want Register ?</Typography>

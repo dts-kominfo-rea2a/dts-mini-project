@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,6 +20,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 //Fungsi
+const googleSignIn = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider);
+};
+
 const registerDenganEmailDanPassword = async (email, password) => {
   try {
     const userYangDidapatakan = await createUserWithEmailAndPassword(auth, email, password);
@@ -35,7 +40,6 @@ const registerDenganEmailDanPassword = async (email, password) => {
 const loginDenganEmailDanPassword = async (email, password) => {
   try {
     const userYangLogin = await signInWithEmailAndPassword(auth, email, password);
-
     console.log("user yang login adalah", userYangLogin.user);
   } catch (err) {
     console.log(err);
@@ -64,4 +68,4 @@ const keluarDariAplikasi = async () => {
   }
 };
 
-export { auth, registerDenganEmailDanPassword, loginDenganEmailDanPassword, resetPassword, keluarDariAplikasi };
+export { auth, registerDenganEmailDanPassword, loginDenganEmailDanPassword, resetPassword, keluarDariAplikasi, googleSignIn };

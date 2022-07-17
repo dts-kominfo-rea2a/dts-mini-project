@@ -13,7 +13,6 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registrasi" element={<Registrasi />} />
-      <Route path="*" element={<Error />} />
     </Routes>
     </BrowserRouter>
   );

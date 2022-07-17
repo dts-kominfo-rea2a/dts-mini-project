@@ -1,5 +1,4 @@
 import React from "react";
-import { HiUserCircle, HiViewList } from "react-icons/hi";
 
 const Menu = () => {
   return (

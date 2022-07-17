@@ -4,7 +4,7 @@ const User = () => {
   return (
     <ul className="flex gap-2">
       <li>My List</li>
-      <li>User</li>
+      <li> User</li>
     </ul>
   );
 };

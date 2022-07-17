@@ -1,7 +1,7 @@
 import React from "react";
 
 const Input = (props) => {
-  const { type, name, id, placeholder } = props;
+  const { type, name, id, placeholder, onChange, value } = props;
   return (
     <div className="border-slate-400 border-2 relative rounded">
       <input
@@ -9,6 +9,8 @@ const Input = (props) => {
         name={name}
         id={id}
         placeholder={placeholder}
+        onChange={onChange}
+        value={value}
         className="p-8 text-left tracking-[0.16em] font-Inter md:text-s2 bg-transparent text-white placeholder:text-transparent opacity-20 peer focus:opacity-100 focus:outline-none focus:bg-transparent focus:tracking-normal font-bold"
       />
       <label

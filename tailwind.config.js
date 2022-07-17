@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Inter: "Inter, sans-serif",
+        Inter: "Inter",
       },
       fontSize: {
         s1: "30px",
@@ -22,6 +22,9 @@ module.exports = {
         "abu-abu": "rgba(128, 128, 128, 1)",
         hitam: "rgba(20, 20, 20, 1)",
         merah: "rgba(185, 9, 11, 1)",
+      },
+      backgroundImage: {
+        movie: "url('./assets/images/backgroundLogin.png')",
       },
     },
   },

@@ -14,7 +14,7 @@ const ListFilm = ({ title }) => {
     <>
       <div className="list_film">
         <div className="list_film__title">
-          <span>{ title }</span>
+          <span>{title}</span>
         </div>
         <div className="list_film__list">
           <Swiper
@@ -37,16 +37,24 @@ const ListFilm = ({ title }) => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
+              <Link to="/detail-film/3">
+                <img src="https://placekitten.com/300/200" alt="movie 1" />
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
+              <Link to="/detail-film/3">
+                <img src="https://placekitten.com/300/200" alt="movie 1" />
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
+              <Link to="/detail-film/4">
+                <img src="https://placekitten.com/300/200" alt="movie 1" />
+              </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
+              <Link to="/detail-film/5">
+                <img src="https://placekitten.com/300/200" alt="movie 1" />
+              </Link>
             </SwiperSlide>
           </Swiper>
         </div>

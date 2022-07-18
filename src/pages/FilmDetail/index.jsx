@@ -6,7 +6,7 @@ import axios from "axios";
 
 import "./FilmDetail.css";
 
-const FilmDetail = () => {
+const FilmDetail = ({ tv }) => {
   const { filmId } = useParams();
   const [detailFilm, setDetailFilm] = useState({});
 
@@ -17,16 +17,24 @@ const FilmDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       const detailFilmResult = await axios.get(
-        `${basePath}/movie/${filmId}?api_key=${apiKey}`
+        `${basePath}/${tv ? "tv" : "movie"}/${filmId}?api_key=${apiKey}`
       );
 
       setDetailFilm(detailFilmResult.data);
     };
 
     fetchData();
-  }, [basePath, apiKey, filmId]);
+  }, [basePath, apiKey, filmId, tv]);
 
-  const { backdrop_path, poster_path, title, overview } = detailFilm;
+  const { backdrop_path, poster_path, title, original_name, overview } = detailFilm;
+
+  const posterImage = poster_path
+    ? `${imagePath}${poster_path}`
+    : "https://placekitten.com/300/400";
+    
+  const bannerImage = backdrop_path
+    ? `${imagePath}${backdrop_path}`
+    : posterImage;
 
   return (
     <>
@@ -35,12 +43,12 @@ const FilmDetail = () => {
           <div
             className="film_detail__hero"
             style={{
-              backgroundImage: `linear-gradient(30deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${imagePath}${backdrop_path}')`,
+              backgroundImage: `linear-gradient(30deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${bannerImage}')`,
             }}
           >
             <div className="film_detail__hero__left">
               <div className="film_detail__hero__title">
-                <h1>{title}</h1>
+                <h1>{title ?? original_name}</h1>
               </div>
               <div className="film_detail__hero__desc">
                 <p>{overview}</p>
@@ -66,7 +74,7 @@ const FilmDetail = () => {
               </div>
             </div>
             <div className="film_detail__hero__right">
-              <img src={`${imagePath}${poster_path}`} alt={title} />
+              <img src={posterImage} alt={title} />
             </div>
           </div>
           <div className="film_detail__desc">

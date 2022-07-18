@@ -38,7 +38,10 @@ const ListFilm = ({ title, movies, tv }) => {
 
               return (
                 <SwiperSlide>
-                  <Link to={`/detail-film/${id}`} state={{ movie }}>
+                  <Link
+                    to={`/detail-${tv ? "tv" : "film"}/${id}`}
+                    state={{ movie }}
+                  >
                     <img
                       src={`${imagePath}${tv ? poster_path : backdrop_path}`}
                       alt={title}

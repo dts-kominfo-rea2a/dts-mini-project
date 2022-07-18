@@ -3,6 +3,8 @@ import { Container, Button } from "@mui/material";
 import { PlayArrow, Info } from "@mui/icons-material";
 import "./FilmDetail.css";
 
+import { ListFilm } from "../../components";
+
 const FilmDetail = () => {
   const { filmId } = useParams();
 
@@ -30,12 +32,19 @@ const FilmDetail = () => {
             <div className="film_detail__hero__action">
               <Button
                 variant="contained"
-                color="success"
+                style={{ backgroundColor: "#fff", color: "#141414" }}
                 startIcon={<PlayArrow />}
               >
                 Play
               </Button>
-              <Button variant="contained" startIcon={<Info />}>
+              <Button
+                variant="contained"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.5)",
+                  color: "#fff",
+                }}
+                startIcon={<Info />}
+              >
                 More Information
               </Button>
             </div>

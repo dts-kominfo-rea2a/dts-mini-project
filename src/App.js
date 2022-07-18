@@ -25,22 +25,12 @@ function App() {
   //   </div>
   // );
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <header className="App-header">Movie Apps</header>
-=======
-    <div className="App" style={{display:"flex", flexDirection: 'column', }}>
+    <div className="App" style={{ display: "flex", flexDirection: "column" }}>
       <NavBar />
       <Home />
       <Footer />
->>>>>>> b54aa605b757654479810cb4b99d054045087027
     </div>
   );
 }
 
-
 export default App;
-
-
-
-

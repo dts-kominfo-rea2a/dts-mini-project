@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import { Home } from "./pages";
+import { Home, FilmDetail } from "./pages";
 import { Footer } from "./components";
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/detail-film/:filmId" element={<FilmDetail />} />
       </Routes>
       <Footer />
     </>

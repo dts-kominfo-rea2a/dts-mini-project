@@ -43,7 +43,10 @@ const Footer = () => {
             </Button>
           </div>
           <div className="footer__copyright">
-            <span>&copy; 2022 Movies, All Right Reserved.</span>
+            <span>
+              Made with ❤️ By Pair 57 &copy; 2022 Movies, All Right
+              Reserved.
+            </span>
           </div>
         </Container>
       </div>

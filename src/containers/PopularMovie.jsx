@@ -6,9 +6,9 @@ import {
   getPopularMovies,
 } from "../features/movie/getPopularMovies";
 
-import MovieList from "../components/home/MovieList";
+import MovieItem from "../components/home/MovieItem";
 
-const Home = () => {
+const PopularMovie = () => {
   const dispatch = useDispatch();
 
   const popularMovies = useSelector(selectAllPopularMovies);
@@ -19,12 +19,16 @@ const Home = () => {
       dispatch(getPopularMovies());
     }
   }, [popularMovies, dispatch]);
-
   return (
-    <div className="w-4/5">
-      <MovieList categoryName="popular" movieList={popularMovies} />
+    <div className="w-4/5 mt-8">
+      <div className="mb-4 font-semibold text-xl uppercase">Popular Movies</div>
+      <div className="grid grid-cols-6 gap-4">
+        {popularMovies.slice(0, 20).map((movie) => (
+          <MovieItem itemMovie={movie} key={movie.id} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default PopularMovie;

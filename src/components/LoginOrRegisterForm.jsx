@@ -1,11 +1,11 @@
-import { maxWidth, width } from '@mui/system';
 import React from 'react';
 import { Grid,Box, TextField, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import styles from "./LoginOrRegisterForm.module.css";
 
 
 
-const LoginOrRegisterForm = () => {
+const LoginOrRegisterForm = ({ loginOrRegister }) => {
   return (
     <Grid
       container
@@ -20,6 +20,7 @@ const LoginOrRegisterForm = () => {
         </Box>
         <Box className={styles.loginContainer}>
           <Box className={styles.formContainer}>
+            <Typography><h1 style={{color: '#1976D2'}}>Garlic's Movie List </h1></Typography>
             <img src={process.env.PUBLIC_URL + '/images/login.png'} width="130" height="130"alt="signinLogo" />
             <Typography><h2>Login/Register</h2></Typography> 
             
@@ -35,14 +36,26 @@ const LoginOrRegisterForm = () => {
                   variant="outlined"
                   size="normal"
                  />
-                <Button className={styles.signin_register}
+                <Button 
                   variant="contained"
                   size="normal"
-                >SignIn/Register</Button>
+                  style={{marginTop: '3em'}}
+                  >{loginOrRegister === "login" ? "Login" : "Register Account"}</Button>
 
-                <Typography style={{fontSize: '14px', 
-                  fontWeight: 'lighter',
-                    marginTop: '50px',
+                  {loginOrRegister === "login" ? (
+                      <Link to="/register">
+                        <Typography variant="body1">or do you want Register ?</Typography>
+                      </Link>
+                    ) : (
+                      <Link to="/login">
+                        <Typography variant="body1">or do you want Login ?</Typography>
+                      </Link>
+                    )}
+
+                <Typography 
+                  style={{fontSize: '14px', 
+                    fontWeight: 'lighter',
+                    marginTop: '10px',
                     color: '#6D6D6D'
                     }}>Copyright: &copy; Nagari&Mukhlis 2022</Typography>
           </Box>

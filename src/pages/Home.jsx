@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "react";
-import List from "../components/List";
-import axios from "axios";
-
-const baseURL =
-  "https://api.themoviedb.org/3/movie/popular?api_key=aaea8dcf53c572d15f8e305dfba3cefd";
+import Popular from "./Popular";
+import Series from "./Series";
+import MyList from "./MyList";
 
 function Home() {
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-    });
-  }, []);
-
-  if (!post) return null;
-
   return (
-    <div className="">
-      <List movieList={post.results} />
+    <div className="flex flex-col">
+      <h1>3 Big Image</h1>
+      <span>Popular</span>
+      <span>Series</span>
+      <span>Continue Watch</span>
+      <span>Your List</span>
+      <Popular/>
+      <Series/>
+      <MyList/>
     </div>
   );
 }

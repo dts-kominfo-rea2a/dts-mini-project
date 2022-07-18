@@ -12,11 +12,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <NavLink to="/">
-                  <img
-                    className="h-8 w-8"
-                    src={Logo}
-                    alt="Workflow"
-                  />
+                  <img className="h-8 w-8" src={Logo} alt="Workflow" />
                 </NavLink>
               </div>
               <div className="md:block ">
@@ -29,6 +25,13 @@ const Navbar = () => {
                   </NavLink>
 
                   <NavLink
+                    to="/popular"
+                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                  >
+                    New And Popular
+                  </NavLink>
+
+                  <NavLink
                     to="/series"
                     className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
@@ -36,17 +39,10 @@ const Navbar = () => {
                   </NavLink>
 
                   <NavLink
-                    to="/movies"
+                    to="/genres"
                     className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
-                    Movies
-                  </NavLink>
-
-                  <NavLink
-                    to="/popular"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
-                  >
-                    New And Popular
+                    Genres
                   </NavLink>
 
                   <NavLink

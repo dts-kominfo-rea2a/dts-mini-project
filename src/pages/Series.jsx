@@ -15,17 +15,13 @@ function Series() {
   }, []);
 
   if (!post) return null;
-  
+
+  const data = post.results;
+  // console.log(data)
   return (
-    <div className="min-h-full">
-      <div className="shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold">Series</h1>
-        </div>
-      </div>
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <List movieList={post.results} />
-      </main>
+    <div className="min-w-full">
+<h1 className="text-1xl underline m-4">Series</h1>
+        <List movieList={data}/>
     </div>
   );
 }

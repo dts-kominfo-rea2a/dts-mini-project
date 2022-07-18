@@ -9,12 +9,14 @@ import "swiper/css/scrollbar";
 
 import "./ListFilm.css";
 
-const ListFilm = ({ title }) => {
+const ListFilm = ({ title, movies, tv }) => {
+  const imagePath = "https://image.tmdb.org/t/p/w500/";
+
   return (
     <>
       <div className="list_film">
         <div className="list_film__title">
-          <span>{ title }</span>
+          <span>{title}</span>
         </div>
         <div className="list_film__list">
           <Swiper
@@ -31,23 +33,21 @@ const ListFilm = ({ title }) => {
               "--swiper-pagination-bullet-inactive-opacity": "1",
             }}
           >
-            <SwiperSlide>
-              <Link to="/detail-film/1">
-                <img src="https://placekitten.com/300/200" alt="movie 1" />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://placekitten.com/300/200" alt="movie 1" />
-            </SwiperSlide>
+            {movies.map((movie) => {
+              const { backdrop_path, poster_path, id, title } = movie;
+
+              return (
+                <SwiperSlide>
+                  <Link to={`/detail-film/${id}`} state={{ movie }}>
+                    <img
+                      src={`${imagePath}${tv ? poster_path : backdrop_path}`}
+                      alt={title}
+                      style={{ width: 300, borderRadius: 5 }}
+                    />
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

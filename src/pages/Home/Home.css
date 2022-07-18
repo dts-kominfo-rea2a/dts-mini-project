@@ -1,5 +1,6 @@
 .home__list_film {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 50px 0;
 }

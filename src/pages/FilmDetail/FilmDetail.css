@@ -1,0 +1,51 @@
+.film_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 50px 0;
+}
+
+.film_detail__hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 50px;
+  display: flex;
+  gap: 2rem;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.film_detail__hero__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-basis: 50%;
+}
+
+.film_detail__hero__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.film_detail__hero__right img {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.film_detail__hero__action {
+  display: flex;
+  gap: 1rem;
+}
+
+.film_detail__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.film_detail__desc__title {
+  font-size: 1.3rem;
+}

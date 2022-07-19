@@ -1,14 +1,16 @@
 import React from "react";
-import missing from "../../assets/missing.png";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 
-const Missing = () => {
+const Denied = () => {
   return (
     <div className="w-4/5">
-      <div className="w-full mt-4 bg-slate-100 flex rounded-lg shadow-lg py-8">
+      <div className="w-full mt-4 bg-slate-100 flex rounded-lg shadow-lg py-8 px-4">
         <div>
-          <img src={missing} alt="Not Found..." />
+          <img
+            src="https://i.kym-cdn.com/entries/icons/mobile/000/002/144/You_Shall_Not_Pass!_0-1_screenshot.jpg"
+            alt="Denied"
+          />
         </div>
         <div className="w-full flex flex-col">
           <div
@@ -17,11 +19,11 @@ const Missing = () => {
            before:bg-black before:inline-block before:relative before:align-middle 
            before:w-1/4 before:right-2 after:left-2 text-xl p-4 capitalize font-semibold"
           >
-            lost your way?
+            Access Forbiden!
           </div>
           <div className="w-full">
-            <p>Sorry, we can't found that page.</p>
-            <p>You'll find more interestting stuff on Our Hompage</p>
+            <p>Sorry, you have to be logged in to access this page.</p>
+            <p>But, no worries! You can find more on Our Hompage</p>
           </div>
           <div className="w-full mt-4">
             <Link to="/">
@@ -41,4 +43,4 @@ const Missing = () => {
   );
 };
 
-export default Missing;
+export default Denied;

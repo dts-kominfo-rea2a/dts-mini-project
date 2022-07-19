@@ -7,14 +7,16 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./containers/Header";
 import Navigation from "./containers/Navigation";
 import Footer from "./containers/Footer";
+import ProtectedComponent from "./components/app/ProtectedComponent";
 
 // Container Component
 import Home from "./containers/Home";
 import PopularMovies from "./containers/PopularMovies";
 import SelectedMovie from "./containers/SelectedMovie";
-import Missing from "./components/navigation/Missing";
-import SignUpForm from "./components/user/SignUpForm";
-import LoginForm from "./components/user/LoginForm";
+import LoginOrRegister from "./containers/LoginOrRegister";
+import Missing from "./components/app/Missing";
+import Welcome from "./components/user/Welcome";
+import Denied from "./components/app/Denied";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -35,7 +37,6 @@ function App() {
 
     fetchDataMovies();
   }, []);
-
   return (
     <div className="App">
       <Navigation />
@@ -46,13 +47,28 @@ function App() {
             path="/"
             element={<Home moviesData={movies} search={search} />}
           />
-          <Route path="/movie/:id" element={<SelectedMovie />} />
+          <Route
+            path="/movie/:id"
+            element={
+              <ProtectedComponent>
+                <SelectedMovie />
+              </ProtectedComponent>
+            }
+          />
           <Route
             path="/popular"
             element={<PopularMovies moviesData={movies} search={search} />}
           />
-          <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route
+            path="/login"
+            element={<LoginOrRegister loginOrRegister="login" />}
+          />
+          <Route
+            path="/signup"
+            element={<LoginOrRegister loginOrRegister="register" />}
+          />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/denied" element={<Denied />} />
           <Route path="*" element={<Missing />} />
         </Routes>
       </main>

@@ -17,21 +17,22 @@ const dummyMovie = {
   vote_average: 7.6,
   vote_count: 391,
 };
-const MovieTile = ({ dataMovie }) => {
-  // console.log(dataMovie);
-
+const DetailMovie = ({ movie }) => {
   const baseUrlForMovie = "https://image.tmdb.org/t/p/w200";
   return (
     <>
-      <div className="flex-grow-0 flex-shrink-0 w-10/12 h-44 md:w-72 md:h-44 justify-center rounded-md bg-blue-400">
+      <div className="justify-center ">
         <img
-          className="w-full h-full rounded-sm"
-          src={`${baseUrlForMovie}${dataMovie.poster_path}`}
-          alt={dataMovie.original_title}
+          className=" md:w-full md:h-96"
+          src={`${baseUrlForMovie}${dummyMovie.poster_path}`}
+          alt={dummyMovie.original_title}
         />
+      </div>
+      <div className="px-4 md:px-12 text-yellow-100">
+        <h2>Description</h2>
+        <h1>{dummyMovie.overview}</h1>
       </div>
     </>
   );
 };
-
-export default MovieTile;
+export default DetailMovie;

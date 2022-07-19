@@ -12,8 +12,6 @@ const PopularList = ({ title }) => {
   useEffect(() => {
     if (data) {
       if (page > 1) {
-        let movies = [...listMovie, ...data.results];
-        console.log(movies);
         setListMovie([...listMovie, ...data.results]);
       } else {
         setListMovie(data.results);
@@ -23,11 +21,18 @@ const PopularList = ({ title }) => {
   return (
     <>
       <p className="text-white font-semibold pb-4">{title}</p>
-      <div className="flex w-full gap-2  pb-4 overflow-x-auto overflow-y-visible">
+      <div
+        id={title}
+        className="flex w-full gap-2  pb-4 overflow-x-auto overflow-y-visible"
+      >
         {error ? (
-          <>Ada error di sini nih ...</>
+          <div className="w-full bg-red-500 justify-center">
+            <h3> Data tidak dapat diload</h3>
+          </div>
         ) : isLoading ? (
-          <>Loading sdcds dulu yah ...</>
+          <div className="w-full bg-red-500 justify-center">
+            <h3> Mohon tunggu</h3>
+          </div>
         ) : (
           <>
             {listMovie?.map((movie) => (
@@ -35,12 +40,16 @@ const PopularList = ({ title }) => {
             ))}
           </>
         )}
+
+        <div
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={page === 1}
+          className="bg-slate-50 h-10 w-52 fixed"
+        >
+          {" "}
+          dsfsdf
+        </div>
       </div>
-      <div
-        onClick={() => setPage((prev) => prev + 1)}
-        disabled={page === 1}
-        className="bg-slate-50 h-10 w-52"
-      ></div>
     </>
   );
 };

@@ -37,7 +37,7 @@ const NavigationBar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/Login2"
+            to="/detail"
             className={({ isActive }) =>
               isActive ? activeStyle : unActiveStyle
             }

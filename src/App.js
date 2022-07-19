@@ -9,6 +9,7 @@ import MainPage from "./pages/MainPage";
 import ProtectedComponent from "./components/protectedComponent";
 import LoginPage from "./pages/LoginPage.jsx";
 import HomePage from "./pages/HomePage";
+import DetailPage from "./pages/DetailPage";
 function App() {
   return (
     // <div className="App">
@@ -42,8 +43,7 @@ function App() {
                 </ProtectedComponent>
               }
             />
-            <Route path="login2" element={<LoginPage />} />
-            <Route path="register2" element={<RegisterPage />} />
+            <Route path="detail/:id" element={<DetailPage />} />
           </Route>
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />

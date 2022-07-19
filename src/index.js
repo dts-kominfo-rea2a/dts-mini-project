@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <section className="h-max bg-gradient-to-r from-gray-900 to-black m-0">
+      <section className="bg-gradient-to-r from-gray-900 to-black m-0">
         <App />
       </section>
     </React.StrictMode>

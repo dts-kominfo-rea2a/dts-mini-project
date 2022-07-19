@@ -1,11 +1,33 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import {
+  auth,
+  login,
+  // signInWithGoogle,
+} from "../data/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user) navigate("/", {replace : true});
+    // if (error) console.log(error);
+  }, [user, loading, error, navigate]);
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-neutral-900 rounded-md shadow-xl shadow-neutral-800 lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-white uppercase">
-          Sign in
+          Login
         </h1>
         <form className="mt-6">
           <div className="mb-2">
@@ -13,6 +35,8 @@ const Login = () => {
               Email
             </label>
             <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               className="block w-full px-4 py-2 mt-2 bg-neutral-100 border rounded-md focus:border-red-400 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40"
               placeholder="Email"
@@ -23,6 +47,8 @@ const Login = () => {
               Password
             </label>
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               className="block w-full px-4 py-2 mt-2 text-red-700 bg-neutral-100 border rounded-md focus:border-red-400 focus:ring-red-300 focus:outline-none focus:ring focus:ring-opacity-40"
               placeholder="Password"
@@ -31,9 +57,13 @@ const Login = () => {
           {/* <Link to="/home" className="text-xs text-red-600 hover:underline">Forget Password?</Link> */}
           <div className="mt-6">
             <Link to="/">
-              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600">
-                Login
-              </button>
+            {/* <Navigate to="/" replace={true} /> */}
+            <button
+              onClick={() => login(email, password)}
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+            >
+              Login
+            </button>
             </Link>
           </div>
         </form>
@@ -42,6 +72,7 @@ const Login = () => {
         </div>
         <div className="flex mt-4 gap-x-2">
           <button
+            // onClick={signInWithGoogle}
             type="button"
             className="flex items-center justify-center w-full p-2 border border-white rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-red-400 bg-neutral-100 "
           >

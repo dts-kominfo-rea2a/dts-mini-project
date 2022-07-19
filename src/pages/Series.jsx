@@ -20,8 +20,8 @@ function Series() {
   // console.log(data)
   return (
     <div className="min-w-full">
-<h1 className="text-1xl underline m-4">Series</h1>
-        <List movieList={data}/>
+      <h1 className="text-1xl underline m-4">Series</h1>
+      <List movieList={data} />
     </div>
   );
 }

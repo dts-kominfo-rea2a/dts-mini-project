@@ -7,9 +7,15 @@ import {
   Button,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import { logOut } from "../services/authentication/firebase";
+
 const NavBar = ({ isHomePage }) => {
+  const navigate = useNavigate();
+  const logOutHandler = () => {
+    logOut();
+  };
   return (
     <AppBar
       position="static"
@@ -19,10 +25,21 @@ const NavBar = ({ isHomePage }) => {
     >
       <Container maxWidth="x1">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "flex" },
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             {/* Karena link ini bukan dari MUI yang kita gunakan adalah style, bukan sx */}
+            <Box display={"flex"}>
+              <LocalMoviesIcon sx={{ width: 40, mt: 0.3, color: "red" }} />
+              <Typography variant="h5">Movieku</Typography>
+            </Box>
             {isHomePage ? (
-              <>
+              <Box display={"flex"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
@@ -31,18 +48,18 @@ const NavBar = ({ isHomePage }) => {
                 </Link>
 
                 {/* Karena link ini bukan dari MUI yang kita gunakan adalah style, bukan sx */}
-                <Link to="/logout" style={{ textDecoration: "none" }}>
+                <Link to="/login" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                  <Button
+                    sx={{ my: 2, color: "white", display: "block" }}
+                    onClick={logOutHandler}
+                  >
                     LogOut
                   </Button>
                 </Link>
-              </>
+              </Box>
             ) : (
-              <>
-                <LocalMoviesIcon sx={{ width: 40, mt: 0.3 }} />
-                <Typography variant="h5">Movieku</Typography>
-              </>
+              <></>
             )}
           </Box>
         </Toolbar>

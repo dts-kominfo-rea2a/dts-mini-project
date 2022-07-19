@@ -11,11 +11,38 @@ import {
 import LockIcon from "@mui/icons-material/Lock";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {
+  loginWithEmailandPassword,
+  registerithEmailandPassword,
+} from "../services/authentication/firebase";
 
 const SignForm = ({ text }) => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
-  const loginHandler = () => {
-    navigate("/");
+  const loginOrRegisterHandler = () => {
+    if (text === "Login") {
+      loginWithEmailandPassword(user.email, user.password);
+      navigate("/");
+    } else {
+      registerithEmailandPassword(user.email, user.password);
+      navigate("/");
+    }
+  };
+  const emailHandler = (event) => {
+    setUser({
+      ...user,
+      email: event.target.value,
+    });
+  };
+  const passwordHandler = (event) => {
+    setUser({
+      ...user,
+      password: event.target.value,
+    });
   };
   return (
     <Container
@@ -52,6 +79,8 @@ const SignForm = ({ text }) => {
           id="email"
           label="Email Address"
           name="email"
+          onChange={emailHandler}
+          value={user.email}
           autoComplete="email"
           autoFocus
         />
@@ -63,6 +92,8 @@ const SignForm = ({ text }) => {
           label="Password"
           type="password"
           id="password"
+          onChange={passwordHandler}
+          value={user.password}
           autoComplete="current-password"
           sx={{ borderRadius: 40 }}
         />
@@ -78,7 +109,7 @@ const SignForm = ({ text }) => {
           backgroundColor: "rgba(0,0,0,1)",
           borderRadius: 10,
         }}
-        onClick={loginHandler}
+        onClick={loginOrRegisterHandler}
       >
         {text}
       </Button>

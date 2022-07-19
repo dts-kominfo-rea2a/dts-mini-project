@@ -27,7 +27,7 @@ const User = () => {
               navigate("/login");
             }}
           >
-            Log in
+            Log in / Sign Up!
           </button>
         )}
       </li>

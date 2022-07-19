@@ -15,7 +15,6 @@ import PopularMovies from "./containers/PopularMovies";
 import SelectedMovie from "./containers/SelectedMovie";
 import LoginOrRegister from "./containers/LoginOrRegister";
 import Missing from "./components/app/Missing";
-import Welcome from "./components/user/Welcome";
 import Denied from "./components/app/Denied";
 
 function App() {
@@ -67,7 +66,6 @@ function App() {
             path="/signup"
             element={<LoginOrRegister loginOrRegister="register" />}
           />
-          <Route path="/welcome" element={<Welcome />} />
           <Route path="/denied" element={<Denied />} />
           <Route path="*" element={<Missing />} />
         </Routes>

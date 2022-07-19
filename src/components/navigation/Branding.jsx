@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Branding = ({ brandName }) => {
   return (
     <Link to="/">
-      <span className="flex hover:scale-105">
+      <span className="flex hover:scale-105 items-center justify-center">
         <div className="basis-4 grow-1 self-center">
           <HiFilm />
         </div>

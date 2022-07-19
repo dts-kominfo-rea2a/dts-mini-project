@@ -2,9 +2,7 @@ import React from "react";
 
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 
-import {
-  keluarDariApplikasi
-} from "../authentication/firebase"
+import { logout } from "../authentication/firebase"
 
 // Di sini kita akan menggunakan useNavigate untuk bisa keluar dari halaman HomePage dan
 // beralih ke halaman Login
@@ -17,8 +15,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const buttonLogoutOnClickHandler = async() => {
-    
-    await keluarDariApplikasi();
+    await logout();
     navigate("/login");
   };
 

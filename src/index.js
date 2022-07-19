@@ -9,14 +9,24 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './containers/LoginPage.jsx';
 import RegisterPage from './containers/RegisterPage.jsx';
 
+import ProtectedComponent from './components/ProtectedComponent';
+import ProtectedComponentLogged from './components/ProtectedComponentLogged';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element= {<App/>} />
-        <Route path='login' element={<LoginPage/>} />
+        <Route path='/' element= {
+          <ProtectedComponent>
+            <App/>
+          </ProtectedComponent>} />
+        <Route path='login' element={
+          <ProtectedComponentLogged site={'/'}>
+            <LoginPage/>
+          </ProtectedComponentLogged>
+        } />
         <Route path='register' element={<RegisterPage/>} />
       </Routes>
     </BrowserRouter>

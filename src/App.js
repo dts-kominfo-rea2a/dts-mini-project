@@ -8,8 +8,9 @@ import Footer from "./containers/Footer";
 
 // Container Component
 import Home from "./containers/Home";
-import MoviePage from "./containers/MoviePage";
-import PopularMovie from "./containers/PopularMovie";
+import PopularMovies from "./containers/PopularMovies";
+import SelectedMovie from "./containers/SelectedMovie";
+import Missing from "./components/navigation/Missing";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
       <main className="w-full  min-h-screen pt-2 pb-2 flex justify-center">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movie/:id" element={<MoviePage />} />
-          <Route path="/popular" element={<PopularMovie />} />
+          <Route path="/movie/:id" element={<SelectedMovie />} />
+          <Route path="/popular" element={<PopularMovies />} />
+          <Route path="*" element={<Missing />} />
         </Routes>
       </main>
       <Footer />

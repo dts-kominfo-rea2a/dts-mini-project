@@ -8,8 +8,11 @@ const MovieItem = ({ itemMovie }) => {
   };
 
   return (
-    <div className="rounded-lg shadow-md mb-4 flex flex-col justify-between">
-      <div className="relative">
+    <div
+      className="movieCard rounded-lg shadow-md flex flex-col justify-between"
+      onClick={() => navigate(`/movie/${itemMovie.id}`)}
+    >
+      <div className="relative h-full">
         <img
           src={`http://image.tmdb.org/t/p/w185/${itemMovie.poster_path}`}
           alt="Movie"
@@ -22,13 +25,12 @@ const MovieItem = ({ itemMovie }) => {
           &#9733; {itemMovie.vote_average}
         </div>
       </div>
-      <div className="flex flex-col mt-2">
-        <div className="font-semibold">{itemMovie.title}</div>
+      <div className="flex flex-col justiy-between">
         <button
           className="mt-4 bg-sky-600 text-white p-2 rounded-b-lg"
           onClick={() => navigateTo(`/movie/${itemMovie.id}`)}
         >
-          <span>View &raquo;</span>
+          <span> {itemMovie.title} &raquo;</span>
         </button>
       </div>
     </div>

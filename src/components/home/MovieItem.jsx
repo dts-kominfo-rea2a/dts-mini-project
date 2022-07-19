@@ -9,7 +9,7 @@ const MovieItem = ({ itemMovie }) => {
 
   return (
     <div
-      className="movieCard rounded-lg shadow-md flex flex-col justify-between"
+      className="movieCard rounded-lg shadow-md flex flex-col justify-between hover:scale-105"
       onClick={() => navigate(`/movie/${itemMovie.id}`)}
     >
       <div className="relative h-full">

@@ -13,6 +13,8 @@ import Home from "./containers/Home";
 import PopularMovies from "./containers/PopularMovies";
 import SelectedMovie from "./containers/SelectedMovie";
 import Missing from "./components/navigation/Missing";
+import SignUpForm from "./containers/SignUpForm";
+import LoginForm from "./containers/LoginForm";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -49,6 +51,8 @@ function App() {
             path="/popular"
             element={<PopularMovies moviesData={movies} search={search} />}
           />
+          <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="*" element={<Missing />} />
         </Routes>
       </main>

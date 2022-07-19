@@ -21,7 +21,7 @@ const Missing = () => {
           </div>
           <div className="w-full">
             <p>Sorry, we can't found that page.</p>
-            <p>You'll find more interestting stuff on Our Hompage</p>
+            <p>You'll find more interesting stuff on Our Hompage</p>
           </div>
           <div className="w-full mt-4">
             <Link to="/">

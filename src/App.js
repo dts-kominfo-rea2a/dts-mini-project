@@ -13,8 +13,8 @@ import Home from "./containers/Home";
 import PopularMovies from "./containers/PopularMovies";
 import SelectedMovie from "./containers/SelectedMovie";
 import Missing from "./components/navigation/Missing";
-import SignUpForm from "./containers/SignUpForm";
-import LoginForm from "./containers/LoginForm";
+import SignUpForm from "./components/user/SignUpForm";
+import LoginForm from "./components/user/LoginForm";
 
 function App() {
   const [movies, setMovies] = useState([]);

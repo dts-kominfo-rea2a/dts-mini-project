@@ -1,14 +1,14 @@
 import React from "react";
 
-const FormSearch = ({ onSearchHandlerFn }) => {
+const FormSearch = ({ search, searchHandler }) => {
   return (
-    <form className="basis-2/5 shadow border border-gray-500">
+    <form className="basis-2/5 shadow border border-gray-500 p-1">
       <input
-        className="w-full"
+        className="w-full outline-none"
         type="text"
-        onClick={(e) => {
-          return null;
-        }}
+        onChange={(e) => searchHandler(e.target.value)}
+        value={search}
+        placeholder="Cari judul film..."
       />
     </form>
   );

@@ -42,35 +42,35 @@ const Navbar = () => {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavLink
                     to="/"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    className="bg-neutral-900 text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     Home
                   </NavLink>
 
                   <NavLink
                     to="/popular"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    className="bg-neutral-900 text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     New And Popular
                   </NavLink>
 
                   <NavLink
                     to="/series"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    className="bg-neutral-900 text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     Series
                   </NavLink>
 
                   {/* <NavLink
                     to="/genres"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    className="bg-neutral-900 text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     Genres
                   </NavLink> */}
                   {user ? (
                     <NavLink
                       to="/mylist"
-                      className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                      className="bg-neutral-900 text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                     >
                       My List
                     </NavLink>
@@ -95,6 +95,7 @@ const Navbar = () => {
                   <NavLink
                     to="/"
                     className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    end
                   >
                     {name}
                   </NavLink>

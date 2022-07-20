@@ -13,12 +13,21 @@ const PopularList = () => {
         <>lagi loading..</>
       ) : (
         <>
-          <Typography variant="h3" color={"white"}>
-            Popular Movies
-          </Typography>
-          {data.results.map((popular) => (
-            <PopularItem key={popular.id} popular={popular}></PopularItem>
-          ))}
+          <div>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                justifyContent: "flex-start",
+                p: 5,
+              }}
+            >
+              {data.results.map((popular) => (
+                <PopularItem key={popular.id} popular={popular}></PopularItem>
+              ))}
+            </Box>
+          </div>
         </>
       )}
     </Box>

@@ -10,6 +10,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import { logOut } from "../services/authentication/firebase";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const NavBar = ({ isHomePage }) => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const NavBar = ({ isHomePage }) => {
                 <Link to="/" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    Movies
+                    Populer
                   </Button>
                 </Link>
 
@@ -54,7 +55,7 @@ const NavBar = ({ isHomePage }) => {
                     sx={{ my: 2, color: "white", display: "block" }}
                     onClick={logOutHandler}
                   >
-                    LogOut
+                    <LogoutIcon />
                   </Button>
                 </Link>
               </Box>

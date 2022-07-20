@@ -9,7 +9,7 @@ function Popular() {
       setPost(response.results);
     });
   }, []);
-  return <List movieList={post} title="Popular Movies" />;
+  return <List movieList={post} title="Popular" />;
 }
 
 export default Popular;

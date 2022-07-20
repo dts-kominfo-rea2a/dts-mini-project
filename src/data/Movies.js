@@ -13,10 +13,17 @@ const getMovies = (url) => {
   });
 };
 
+const getMovieDetail = (url, id) => {
+  return axios.get(`${baseURL}${url}${id}?${apiKey}`).then((response) => {
+    return response.data;
+  });
+};
+
 const data = {
   popular: getMovies(popular),
   series: getMovies(series),
   genres: getMovies(genres),
+  getMovieDetail,
 };
 
 export default data;

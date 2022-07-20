@@ -2,7 +2,9 @@ import React from 'react'
 
 function MyList() {
   return (
-    <div>MyList</div>
+    <>
+      <div className="flex flex-col ml-36"></div>
+    </>
   )
 }
 

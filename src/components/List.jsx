@@ -1,25 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function List({ movieList }) {
-  // const img = "https://placekitten.com/400/200";
-  const img = "https://image.tmdb.org/t/p/w300";
-  // const img = "https://image.tmdb.org/t/p/original";
+function List({ movieList, title }) {
+  const img = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="flex flex-row m-6">
-      {movieList.splice(-6).map((item, index) => (
-        <div key={item.id} className="box-border h-96 w-72 border-2 m-10">
-          <img
-            src={`${img}${item.poster_path}`}
-            alt={item.title}
-            // className="object-cover h-28 w-96 p-1 hover:object-scale-down"
-            className=""
-          />
-          <span className="text-center">
-            {item.title} {item.name}
-          </span>
-        </div>
-      ))}
+    <div className="flex flex-col">
+      <h1 className="text-lg ml-28 m-4 px-4 underline">{title}</h1>
+      <div className="flex flex-row mb-20 justify-center flex-wrap">
+        {movieList.map((item, index) => (
+          <div key={item.id} className="h-auto w-72 mx-12 text-center py-4">
+            <Link to="/detail">
+              {/* to={"/detail/"+item.id} */}
+              <img
+                src={`${img}${item.poster_path}`}
+                alt={item.title}
+                className="hover:p-1"
+              />
+              <span>
+                {item.title} {item.name}
+              </span>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

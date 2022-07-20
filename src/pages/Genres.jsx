@@ -2,7 +2,7 @@ import React from 'react'
 
 function Genres() {
   return (
-    <div>Genres</div>
+    <div className="flex flex-col ml-36">Genres</div>
   )
 }
 

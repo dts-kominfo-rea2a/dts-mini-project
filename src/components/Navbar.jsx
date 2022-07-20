@@ -1,9 +1,32 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate, NavLink } from "react-router-dom";
+import { auth, db, logout } from "../data/firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [user, loading] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/");
+    const fetchUserName = async () => {
+      try {
+        const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+        const doc = await getDocs(q);
+        const data = doc.docs[0].data();
+        setName(data.name);
+      } catch (err) {
+        console.error(err);
+        alert("An error occured while fetching user data");
+      }
+    };
+    fetchUserName();
+  }, [user, loading, navigate]);
+
   return (
     <div>
       <nav className="bg-neutral-900">
@@ -38,71 +61,51 @@ const Navbar = () => {
                     Series
                   </NavLink>
 
-                  <NavLink
+                  {/* <NavLink
                     to="/genres"
                     className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     Genres
-                  </NavLink>
-
-                  <NavLink
-                    to="/mylist"
-                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
-                  >
-                    My List
-                  </NavLink>
+                  </NavLink> */}
+                  {user ? (
+                    <NavLink
+                      to="/mylist"
+                      className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    >
+                      My List
+                    </NavLink>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="mr-2 flex">
+              {!user ? (
+                <>
                   <NavLink
                     to="/login"
                     className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
                     Login
                   </NavLink>
-                </div>
-              </div>
-            </div>
-            <div className="mr-2 flex">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
+                </>
+              ) : (
+                <>
+                  <NavLink
+                    to="/"
+                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
+                    {name}
+                  </NavLink>
+                  <button
+                    className="text-gray-300 hover:bg-neutral-800 hover:text-white px-4 py-5 rounded-md text-sm font-medium"
+                    onClick={logout}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
+                    Logout
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

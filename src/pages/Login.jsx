@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import {
   auth,
-  login,
-  // signInWithGoogle,
+  logInWithEmailAndPassword,
+  signInWithGoogle,
 } from "../data/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -19,8 +18,7 @@ const Login = () => {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/", {replace : true});
-    // if (error) console.log(error);
+    if (user) navigate("/");
   }, [user, loading, error, navigate]);
 
   return (
@@ -29,7 +27,7 @@ const Login = () => {
         <h1 className="text-3xl font-semibold text-center text-white uppercase">
           Login
         </h1>
-        <form className="mt-6">
+        <div className="mt-6">
           <div className="mb-2">
             <label className="block text-sm font-semibold text-white">
               Email
@@ -56,23 +54,21 @@ const Login = () => {
           </div>
           {/* <Link to="/home" className="text-xs text-red-600 hover:underline">Forget Password?</Link> */}
           <div className="mt-6">
-            <Link to="/">
-            {/* <Navigate to="/" replace={true} /> */}
-            <button
-              onClick={() => login(email, password)}
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
-            >
-              Login
-            </button>
-            </Link>
+            {/* <Link to="/"> */}
+              {/* <Navigate to="/" replace={true} /> */}
+              <button
+                onClick={() => logInWithEmailAndPassword(email, password)}
+                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+              >
+                Login
+              </button>
+            {/* </Link> */}
           </div>
-        </form>
-        <div className="relative flex items-center justify-center w-full mt-6 border border-t">
-          {/* <div className="absolute px-5 bg-black">Or</div> */}
         </div>
+        <div className="relative flex items-center justify-center w-full mt-6 border border-t"></div>
         <div className="flex mt-4 gap-x-2">
           <button
-            // onClick={signInWithGoogle}
+            onClick={signInWithGoogle}
             type="button"
             className="flex items-center justify-center w-full p-2 border border-white rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-red-400 bg-neutral-100 "
           >

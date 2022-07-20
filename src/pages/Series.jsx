@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
 import List from "../components/List";
-import axios from "axios";
-
-const baseURL =
-  "https://api.themoviedb.org/3/tv/popular?api_key=aaea8dcf53c572d15f8e305dfba3cefd";
+import Movies from "../data/Movies.js";
 
 function Series() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
+    Movies.series.then((response) => {
+      setPost(response.results);
     });
   }, []);
 
   if (!post) return null;
 
-  const data = post.results;
-  // console.log(data)
-  return (
-    <div className="min-w-full">
-      <h1 className="text-1xl underline m-4">Series</h1>
-      <List movieList={data} />
-    </div>
-  );
+  return <List movieList={post} title="Series" />;
 }
 
 export default Series;

@@ -4,11 +4,23 @@ import {
     Container, 
     Toolbar, 
     Typography,
-    Box
+    Box,
+    Button
   } from '@mui/material';
+import { signOutApp } from '../auth/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  return (
+
+    const navigate = useNavigate();
+
+    const logoutHandler = async () => {
+        await signOutApp();
+        navigate("/login");
+    }
+
+
+    return (
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
@@ -31,7 +43,9 @@ const Navbar = () => {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex' }, justifyContent:'space-between' }}>
                     <Typography textAlign="center">Home</Typography>
-                    <Typography textAlign="center">Logout</Typography>
+                    <Button color="inherit" onClick={logoutHandler}>
+                        Logout
+                    </Button>
                     </Box>
                 </Toolbar>
             </Container>

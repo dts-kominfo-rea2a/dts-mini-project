@@ -35,7 +35,7 @@ function Detail() {
   let movieGenres = genres.map((item) => [item.name]);
   let prodCompList = prodComp.map((item) => [item.name]);
   let movieLength = ` . ${details.runtime} min`;
-
+  console.log(details)
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center">
@@ -62,7 +62,7 @@ function Detail() {
           </div>
           <div className="py-2">
             {production.map((item) => item.iso_3166_1 + " ")}
-            {movieLength}
+            {details.runtime ? movieLength : ""}
           </div>
         </div>
       </div>

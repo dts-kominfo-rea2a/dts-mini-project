@@ -4026,6 +4026,11 @@ cosmiconfig@^7, cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+craco-styled-jsx@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/craco-styled-jsx/-/craco-styled-jsx-1.0.1.tgz#c801940413c47ff1888e1ce9f243c4ce2b482601"
+  integrity sha512-PwG/Hh5yhVQojKiH7xXQpE6mFFTQIfbIZe2nFvFZLv2tUhpkITQiXEvxRXodDf1mAa4MO5vDD5sIi67jDw1epA==
+
 crc-32@~1.2.0, crc-32@~1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/crc-32/-/crc-32-1.2.2.tgz#3cad35a934b8bf71f25ca524b6da51fb7eace2ff"

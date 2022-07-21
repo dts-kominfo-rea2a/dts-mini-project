@@ -6,11 +6,16 @@ import {
   CardText,
   CardLink
 } from "reactstrap"
+import MovieCard from "../components/MovieCard"
+import PopularMovies from "../components/PopularMovies"
 
 const Home = () => {
+
   return (
     <div>
-      <Card>
+      <PopularMovies />
+      {/* <MovieCard /> */}
+      {/* <Card>
         <CardHeader>
           <CardTitle>Kick start your project 🚀</CardTitle>
         </CardHeader>
@@ -27,9 +32,9 @@ const Home = () => {
             to understand where to go from here and how to use our template.
           </CardText>
         </CardBody>
-      </Card>
+      </Card> */}
 
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Want to integrate JWT? 🔒</CardTitle>
         </CardHeader>
@@ -49,7 +54,7 @@ const Home = () => {
             to get more out of JWT authentication.
           </CardText>
         </CardBody>
-      </Card>
+      </Card> */}
     </div>
   )
 }

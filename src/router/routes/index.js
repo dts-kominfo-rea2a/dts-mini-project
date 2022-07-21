@@ -12,6 +12,7 @@ import PublicRoute from "@components/routes/PublicRoute"
 
 // ** Utils
 import { isObjEmpty } from "@utils"
+import DetailMovie from "../../components/DetailMovie"
 
 const getLayout = {
   blank: <BlankLayout />,
@@ -27,7 +28,7 @@ const DefaultRoute = "/home"
 
 const Home = lazy(() => import("../../views/Home"))
 const SecondPage = lazy(() => import("../../views/SecondPage"))
-const Login = lazy(() => import("../../views/Login"))
+const Login = lazy(() => import("../../views/Login.jsx"))
 const Register = lazy(() => import("../../views/Register"))
 const ForgotPassword = lazy(() => import("../../views/ForgotPassword"))
 const Error = lazy(() => import("../../views/Error"))
@@ -42,6 +43,10 @@ const Routes = [
   {
     path: "/home",
     element: <Home />
+  },
+  {
+    path: "/movie/:movieId",
+    element: <DetailMovie />
   },
   {
     path: "/second-page",

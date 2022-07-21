@@ -14,6 +14,16 @@ module.exports = {
       plugins: [require('postcss-rtl')()]
     }
   },
+  plugins: [
+    {
+      plugin: require('craco-styled-jsx'),
+      options: {
+        sass: true, // Required node-sass to enable this option
+        cssFileSupport: true, // Allow to write css in a standalone file
+        cssFileTest: /\.styled\.(s)css$/
+      }
+    }
+  ],
   webpack: {
     alias: {
       '@src': path.resolve(__dirname, 'src'),

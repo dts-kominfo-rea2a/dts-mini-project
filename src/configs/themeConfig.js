@@ -3,13 +3,13 @@
 //Template config options
 const themeConfig = {
   app: {
-    appName: "Vuexy",
+    appName: "Movie List",
     appLogoImage: require("@src/assets/images/logo/logo.svg").default
   },
   layout: {
     isRTL: false,
     skin: "light", // light, dark, bordered, semi-dark
-    type: "vertical", // vertical, horizontal
+    type: "horizontal", // vertical, horizontal
     contentWidth: "boxed", // full, boxed
     menu: {
       isHidden: false,
@@ -18,10 +18,10 @@ const themeConfig = {
     navbar: {
       // ? For horizontal menu, navbar type will work for navMenu type
       type: "floating", // static , sticky , floating, hidden
-      backgroundColor: "white" // BS color options [primary, success, etc]
+      backgroundColor: "primary" // BS color options [primary, success, etc]
     },
     footer: {
-      type: "static" // static, sticky, hidden
+      type: "hidden" // static, sticky, hidden
     },
     customizer: false,
     scrollTop: true, // Enable scroll to top button

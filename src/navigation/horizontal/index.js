@@ -9,7 +9,7 @@ export default [
   },
   {
     id: "secondPage",
-    title: "Second Page",
+    title: "Movie Detail",
     icon: <Mail size={20} />,
     navLink: "/second-page"
   }

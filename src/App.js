@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ListMovies from "./containers/ListMovies";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <section>
+        <ListMovies
+          title="Now Playing Movies"
+          TMDBurl="https://api.themoviedb.org/3/movie/now_playing?api_key=18594ab348cc3a56c1c45cc4ed2f35e0"
+        />
+        <ListMovies
+          title="Popular Movies"
+          TMDBurl="https://api.themoviedb.org/3/movie/popular?api_key=18594ab348cc3a56c1c45cc4ed2f35e0"
+        />
+        <ListMovies
+          title="Top Rated Movies"
+          TMDBurl="https://api.themoviedb.org/3/movie/top_rated?api_key=18594ab348cc3a56c1c45cc4ed2f35e0"
+        />
+      </section>
     </div>
   );
 }

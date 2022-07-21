@@ -53,6 +53,7 @@ const loginDenganEmailDanPassword = async (email, password) => {
     // Sama dengan register
     console.log("error code auth", err.code);
     console.log("error message auth", err.message);
+    return err.message;
   }
 };
 

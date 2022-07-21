@@ -99,7 +99,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
             <div className="mb-4">
               <input
                 type="text"
-                className="form-control justify-center block w-full px-4 py-2 font-small text-black bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
+                className="form-control block w-full px-4 py-2 font-small text-white bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
                 id="email"
                 placeholder="Email address"
                 onChange={textFieldEmailOnChangeHandler}
@@ -108,7 +108,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
             <div className="mb-4">
               <input
                 type="password"
-                className="form-control block w-full px-4 py-2 font-small text-black bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
+                className="form-control block w-full px-4 py-2 font-small text-white bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
                 id="password"
                 placeholder="Password"
                 onChange={textFieldPasswordOnChangeHandler}

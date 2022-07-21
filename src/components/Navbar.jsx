@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import { useState } from 'react';
 import LogoImage from '../assets/image/logo-app.svg'
 import IconMenuBar from '../assets/icon/icon-menu.svg'
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LogoApp = () => {
     return <img src={LogoImage} alt='logo-app' />
@@ -32,13 +32,13 @@ const Navbar = (props) => {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', }}>
             <LogoApp />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.href} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <Link to={item.href} style={{ textDecoration: 'none' }}>
+                        <ListItemButton sx={{ textAlign: 'center', }}>
+                            <Link to={item.href} style={{ textDecoration: 'none', color: '#fff' }}>
                                 <ListItemText primary={item.text} />
                             </Link>
                         </ListItemButton>
@@ -52,9 +52,8 @@ const Navbar = (props) => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', }}>
-                <AppBar component="nav" elevation={0} sx={{bgcolor: 'palette.background.default'}}>
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-between',bgcolor: 'palette.background.default' }} >
+                <AppBar component="nav" elevation={0}>
+                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }} >
                         <LogoApp />
                         <Divider />
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -82,7 +81,7 @@ const Navbar = (props) => {
                         </div>
                     </Toolbar>
                 </AppBar>
-                <Box component="nav">
+                <Box component="nav" sx={{}}>
                     <Drawer
                         container={container}
                         variant="temporary"
@@ -94,16 +93,12 @@ const Navbar = (props) => {
                         }}
                         sx={{
                             display: { xs: 'block', sm: 'none' },
-                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, paddingY: '16px' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, paddingY: '16px' , bgcolor: 'primary', },
                         }}
                     >
                         {drawer}
                     </Drawer>
                 </Box>
-            </Box>
-            <Box sx={{ p: 3 }}>
-                <Outlet />
-            </Box>
         </>
     )
 }

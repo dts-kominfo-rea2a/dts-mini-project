@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+.mainLogin {
+  background-image: url("https://images.unsplash.com/photo-1610568781018-995405522539?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  width: 100vw;
+  height: 508px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainLogin h2 {
+  color: white;
+}
+
+.formWrapper form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  gap: 10px;
+  justify-cover: center;
+  margin: 0 auto;
+}

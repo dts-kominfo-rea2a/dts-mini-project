@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.mainRegister {
+  background-image: url("https://images.unsplash.com/photo-1612916628677-475f676a6adf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  width: 100vw;
+  height: 508px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainRegister h2 {
+  color: white;
+}
+
+.formWrapperRegister form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  gap: 5px;
+  justify-cover: center;
+  margin: 0 auto;
+}

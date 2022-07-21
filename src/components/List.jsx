@@ -5,11 +5,11 @@ function List({ movieList, title }) {
   const img = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="flex flex-col">
-      <h1 className="text-lg ml-28 m-4 px-4 underline">{title}</h1>
-      <div className="flex flex-row mb-20 justify-center flex-wrap">
+    <div className="flex flex-col justify-center mx-auto max-w-7xl">
+      <h1 className="text-lg pt-4 underline mx-5">{title}</h1>
+      <div className="flex flex-row mb-10 flex-wrap ">
         {movieList ? movieList.map((item, index) => (
-          <div key={item.id} className="h-auto w-72 mx-12 text-center py-4">
+          <div key={item.id} className="h-auto w-72 text-center py-2 mx-auto">
             <Link to="/detail" state={{ from: item.id }}>
               <img
                 src={`${img}${item.poster_path}`}

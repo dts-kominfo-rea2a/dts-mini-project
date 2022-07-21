@@ -1,5 +1,5 @@
 import React, { useEffect , useState} from "react";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import styles from "./HomePage.module.css";
 import Movie from "./Movie";
 

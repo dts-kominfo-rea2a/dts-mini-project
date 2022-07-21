@@ -89,11 +89,11 @@ const LoginOrRegisterPage = ({ loginOrRegister }) => {
 
         {loginOrRegister === "login" ? (
           <Link to="/registrasi">
-            <Typography variant="body1">or do you want Register ?</Typography>
+            <Typography variant="body1">Or Do You Want To Register ?</Typography>
           </Link>
         ) : (
           <Link to="/login">
-            <Typography variant="body1">or do you want Login ?</Typography>
+            <Typography variant="body1">Or Do You Want To Register ?</Typography>
           </Link>
         )}
       </Box>

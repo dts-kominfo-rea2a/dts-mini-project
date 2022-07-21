@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
+import ErrorComponent from "../components/ErrorComponent";
+
 import {
   auth,
   loginDenganEmailDanPassword,
@@ -17,7 +19,6 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
   const navigate = useNavigate();
 
   const [user, isLoading, error] = useAuthState(auth);
-  console.log(useAuthState(auth));
 
   const [credential, setCredential] = useState({
     email: "",
@@ -39,12 +40,10 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
   };
 
   const loginHandler = () => {
-    console.log("Login");
     loginDenganEmailDanPassword(credential.email, credential.password);
   };
 
   const registerHandler = () => {
-    console.log("Register");
     registerDenganEmailDanPassword(credential.email, credential.password);
   };
 
@@ -57,23 +56,12 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
     }
   };
 
-  useEffect(
-    () => {
-      console.log(user);
-      // if (isLoading) {
-      //   // Tampilkan loading screen (bila ada)
-      //   return;
-      // }
-
-      // Lalu apabila usernya ditemukan (ada / tidak null)
-      // Maka akan kita navigasikan ke halaman HomePage
-      if (user) {
-        navigate("/");
-      }
-    },
-    // Sekarang dependency kita tergantung pada user dan isLoading dari useAuthState
-    [user, isLoading, navigate]
-  );
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      navigate("/");
+    }
+  }, [user, isLoading, navigate, error]);
 
   return (
     <div className="lg:flex h-screen">
@@ -88,12 +76,11 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
       ></div>
       <div className="absolute  right-0 items-center justify-center flex-1 lg:w-1/2 xl:max-w-screen-sm self-center p-12">
         <div className="p-10 w-full">
-          {" "}
           <p className="text-white text-center text-lg font-semibold">
-            {" "}
             MOVIE APP
           </p>
         </div>
+        {error ? <ErrorComponent message={error} /> : <></>}
         <div className="p-4 w-full">
           <form onSubmit={buttonLoginOrRegisterOnClickHandler}>
             <div className="mb-4">

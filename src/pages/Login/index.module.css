@@ -1,0 +1,10 @@
+.widthBox{
+    width: 80%;
+}
+
+
+@media (max-width: 575.98px) { 
+    .widthBox{
+        width: 100%;
+    }
+}

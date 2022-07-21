@@ -43,7 +43,14 @@ function App() {
                 </ProtectedComponent>
               }
             />
-            <Route path="detail/:id" element={<DetailPage />} />
+            <Route
+              path="detail/:id"
+              element={
+                <ProtectedComponent>
+                  <DetailPage />
+                </ProtectedComponent>
+              }
+            />
           </Route>
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />

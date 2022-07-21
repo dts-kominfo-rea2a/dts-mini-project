@@ -76,15 +76,17 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
   );
 
   return (
-    <div className="lg:flex h-screen pt-12">
-      <div className="hidden lg:flex items-center justify-center  flex-1 p-12">
-        <img
-          src={image}
-          className="md:w-2/3 transform duration-200 hover:scale-110 cursor-pointer rounded-2xl"
-          alt="Sample"
-        />
-      </div>
-      <div className="flex-row items-center justify-center flex-1 lg:w-1/2 xl:max-w-screen-sm self-center p-12">
+    <div className="lg:flex h-screen">
+      <div
+        className="hidden md:w-3/4 lg:flex items-center justify-center p-12"
+        style={{
+          backgroundAttachment: "fixed",
+          backgroundImage: `linear-gradient(270deg, rgb(0 0 0), rgb(0 0 0 / 20%)) ,url(
+              '${image}'
+            )`,
+        }}
+      ></div>
+      <div className="absolute  right-0 items-center justify-center flex-1 lg:w-1/2 xl:max-w-screen-sm self-center p-12">
         <div className="p-10 w-full">
           {" "}
           <p className="text-white text-center text-lg font-semibold">
@@ -97,7 +99,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
             <div className="mb-4">
               <input
                 type="text"
-                className="form-control justify-center block w-full px-4 py-2 font-small text-gray-200 bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
+                className="form-control justify-center block w-full px-4 py-2 font-small text-black bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
                 id="email"
                 placeholder="Email address"
                 onChange={textFieldEmailOnChangeHandler}
@@ -106,7 +108,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
             <div className="mb-4">
               <input
                 type="password"
-                className="form-control block w-full px-4 py-2 font-small text-gray-200 bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
+                className="form-control block w-full px-4 py-2 font-small text-black bg-black bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-white focus:bg-black focus:border-blue-600 focus:outline-blue rounded"
                 id="password"
                 placeholder="Password"
                 onChange={textFieldPasswordOnChangeHandler}

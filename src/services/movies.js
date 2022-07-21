@@ -8,9 +8,13 @@ export const moviesApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    popular: builder.query({
-      query: (page = 1) => `movie/popular?api_key=${api_key}&page=${page}`,
+    getMovies: builder.query({
+      query: ({ page = 1, param }) =>
+        `movie/${param}?api_key=${api_key}&page=${page}`,
+    }),
+    getDetail: builder.query({
+      query: (idMovie) => `movie/${idMovie}?api_key=${api_key}`,
     }),
   }),
 });
-export const { usePopularQuery } = moviesApi;
+export const { useGetMoviesQuery, useGetDetailQuery } = moviesApi;

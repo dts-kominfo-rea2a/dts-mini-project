@@ -12,9 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <section className="bg-gradient-to-r from-gray-900 to-black m-0">
+      <div className="font-sans bg-black">
         <App />
-      </section>
+      </div>
     </React.StrictMode>
   </Provider>
 );

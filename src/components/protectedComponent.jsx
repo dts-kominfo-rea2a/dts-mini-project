@@ -18,7 +18,7 @@ const ProtectedComponent = ({ children }) => {
   const [user, isLoading] = useAuthState(auth);
 
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
     if (isLoading) {
       return;
     } else if (!user) {

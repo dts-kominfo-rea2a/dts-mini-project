@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const dummyMovie = {
   adult: false,
@@ -23,13 +24,15 @@ const MovieTile = ({ dataMovie }) => {
   const baseUrlForMovie = "https://image.tmdb.org/t/p/w200";
   return (
     <>
-      <div className="flex-grow-0 flex-shrink-0 w-10/12 h-44 md:w-72 md:h-44 justify-center rounded-md bg-blue-400">
-        <img
-          className="w-full h-full rounded-sm"
-          src={`${baseUrlForMovie}${dataMovie.poster_path}`}
-          alt={dataMovie.original_title}
-        />
-      </div>
+      <Link to={`/detail/${dataMovie.id}`}>
+        <div className="w-72 h-full md:w-72 md:h-44 justify-center rounded-lg">
+          <img
+            className="w-full h-full rounded-lg"
+            src={`${baseUrlForMovie}${dataMovie.poster_path}`}
+            alt={dataMovie.original_title}
+          />
+        </div>
+      </Link>
     </>
   );
 };

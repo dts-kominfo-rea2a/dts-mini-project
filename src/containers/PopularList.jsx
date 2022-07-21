@@ -1,55 +1,67 @@
 import React, { useEffect, useState } from "react";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Navigation, Pagination, Scrollbar } from "swiper";
+import ErrorComponent from "../components/ErrorComponent";
+
 import MovieTile from "../components/MovieTile";
+import { useGetMoviesQuery } from "../services/movies";
 
-import { usePopularQuery } from "../services/movies";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "./slider.css";
 
-const PopularList = ({ title }) => {
+const PopularList = ({ title, param }) => {
   const [page, setPage] = useState(1);
   const [listMovie, setListMovie] = useState([]);
-  const { data, error, isLoading } = usePopularQuery(page);
+  const { data, error, isLoading } = useGetMoviesQuery({ page, param });
 
   useEffect(() => {
     if (data) {
-      if (page > 1) {
-        setListMovie([...listMovie, ...data.results]);
-      } else {
-        setListMovie(data.results);
-      }
+      setListMovie([...listMovie, ...data.results]);
     }
   }, [data]);
   return (
     <>
-      <p className="text-white font-semibold pb-4">{title}</p>
-      <div
-        id={title}
-        className="flex w-full gap-2  pb-4 overflow-x-auto overflow-y-visible"
-      >
-        {error ? (
-          <div className="w-full bg-red-500 justify-center">
-            <h3> Data tidak dapat diload</h3>
-          </div>
-        ) : isLoading ? (
-          <div className="w-full bg-red-500 justify-center">
-            <h3> Mohon tunggu</h3>
-          </div>
-        ) : (
-          <>
-            {listMovie?.map((movie) => (
-              <MovieTile key={movie.id} dataMovie={movie}></MovieTile>
-            ))}
-          </>
-        )}
-
+      <section id={param}>
+        <p className="text-white font-semibold pb-4">{title}</p>
         <div
-          onClick={() => setPage((prev) => prev + 1)}
-          disabled={page === 1}
-          className="bg-slate-50 h-10 w-52 fixed"
+          id={title}
+          className="flex w-full h-44  pb-4 overflow-x-auto overflow-y-visible"
         >
-          {" "}
-          dsfsdf
+          {error ? (
+            <ErrorComponent message={"Sorry something wrongs"} />
+          ) : isLoading ? (
+            <ErrorComponent message={"Movies On Loading"} />
+          ) : (
+            <>
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar]}
+                direction="horizontal"
+                slidesPerView={"auto"}
+                spaceBetween={2}
+                navigation
+                scrollbar={{ draggable: true }}
+                onReachEnd={(event) => {
+                  if (event.activeIndex !== 0) {
+                    let newPage = page + 1;
+                    setPage(newPage);
+                  }
+                }}
+              >
+                {listMovie?.map((movie, i) => (
+                  <SwiperSlide key={i}>
+                    <MovieTile key={i} dataMovie={movie}></MovieTile>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </>
+          )}
         </div>
-      </div>
+      </section>
     </>
   );
 };

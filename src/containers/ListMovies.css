@@ -1,0 +1,14 @@
+.boxy {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding: 2.5em 2.5em 0 2.5em;
+}
+.movie-group-title {
+  text-align: left;
+  margin-bottom: 1em;
+}
+.list-movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

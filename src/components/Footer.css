@@ -1,5 +1,4 @@
 .footer {
-  position: fixed;
   width: 100%;
   background-color: black;
   color: #808080;
@@ -21,6 +20,7 @@
 }
 .footer .container section span {
   margin-top: 20px;
+  cursor: pointer;
 }
 .box {
   border: 1px solid #808080;

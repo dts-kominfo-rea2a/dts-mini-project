@@ -3,7 +3,6 @@ import { Box, Typography } from "@mui/material";
 import "./ListMovies.css";
 import CardMovie from "../components/CardMovie";
 
-import jsonMovies from "../data/movies.json";
 import axios from "axios";
 
 const ListMovies = (props) => {

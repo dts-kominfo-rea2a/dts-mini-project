@@ -1,0 +1,13 @@
+.rotasi{
+    animation: myAnim 1s linear 0s infinite normal none;
+    color: red;
+}
+@keyframes myAnim {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

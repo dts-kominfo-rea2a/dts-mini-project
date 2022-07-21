@@ -4,6 +4,8 @@ import FromLoginRegister from '../../components/FromLoginRegister';
 import { Box } from '@mui/material';
 import BgImage from '../../assets/img/profilePicture.png'
 
+import style from './index.module.css'
+
 const Login = () => {
   return (
     <>
@@ -16,8 +18,7 @@ const Login = () => {
           position: 'relative',
         }}
       >
-        <Box sx={{ 
-                width: '80%', 
+        <Box className={style.widthBox} sx={{  
                 height: '100%', 
                 background: 'linear-gradient(270.09deg, #000000 70%, rgba(255,255,255, 1%) 100%)',
                 position: 'absolute', 

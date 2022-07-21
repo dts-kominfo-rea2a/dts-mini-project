@@ -107,7 +107,7 @@ const FromLoginRegister = ({title}) => {
         padding: '2em',
         maxWidth: '30em',
         marginLeft: 'auto',
-        marginRight: '12em',
+        marginRight: 'auto',
         marginY: '10em',
       }}
     >

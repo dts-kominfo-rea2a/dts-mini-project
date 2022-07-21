@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Typography, TextField, Box, Button, Link } from "@mui/material";
 
-export default function Login() {
+export default function LoginOld() {
   return (
     <Box
       component="form"
       sx={{
         border: "1px solid black",
+        borderRadius: 2,
         bgcolor: "white",
         width: 400,
         height: 400,
@@ -24,8 +25,8 @@ export default function Login() {
       <Button color="inherit" variant="contained" type="submit">
         Login
       </Button>
-      <Link href="#" underline="hover">
-        {"Belum punya Akun? Register Sekarang"}
+      <Link href="/register" underline="hover">
+        {"Doesn't Have an Account? Register Now"}
       </Link>
     </Box>
   );

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import tmdb from "../apis/tmdb";
 
-import { Box, Typography } from "@mui/material";
-import CardMovie from "../components/CardMovie";
 import NavBar from "../components/NavBar";
+import ListMovies from "./ListMovies";
+import FilmDetail from "./FilmDetail";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
     const fetchDataMovies = async () => {
@@ -18,30 +20,13 @@ const Home = () => {
       }
     };
     fetchDataMovies();
-  }, []);
+  }, [params]);
 
   return (
     <>
       <NavBar />
-      <Typography variant="h5" component="div">
-        Popular Movies from TMDB
-      </Typography>
-      <Box
-        className="boxy"
-        sx={{
-          // border: "1px dashed gray",
-          m: 2,
-          display: "flex",
-          flexDirection: "row",
-          gap: 2,
-          // flexWrap: "wrap",
-        }}
-      >
-        {/* buat list moviesnya di sini */}
-        {movies.map((movie) => {
-          return <CardMovie key={movie.id} movie={movie} />;
-        })}
-      </Box>
+      <ListMovies movies={movies} />
+      {/* <FilmDetail movies={movies} /> */}
     </>
   );
 };

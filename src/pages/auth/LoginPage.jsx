@@ -1,5 +1,4 @@
-import { Box, Button, Container, Grid, TextField } from '@mui/material';
-import React from 'react'
+import { Box, Button, Grid, TextField } from '@mui/material';
 
 import ilustration from '../../assets/image/ProfilePicture.png'
 

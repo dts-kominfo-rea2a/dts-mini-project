@@ -1,0 +1,12 @@
+.login-style {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5em;
+    width: 25%;
+    text-align: center;
+    background-color: pink;
+    border: 10em;
+    border-color: blue;
+    justify-content: center;
+    margin: 4% 40%;
+}

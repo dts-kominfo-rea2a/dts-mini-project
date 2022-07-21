@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA1-hYN6O4Ar0o-T-zdW-NySZUnVsmlUKo",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "dts-22-proa.firebaseapp.com",
   projectId: "dts-22-proa",
   storageBucket: "dts-22-proa.appspot.com",

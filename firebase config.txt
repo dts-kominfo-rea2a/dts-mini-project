@@ -1,0 +1,20 @@
+//install firebase di nodejs
+npm install firebase
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBU7Wy5iaThiuI9zH5oOXGnKHAQo8ZP5Fs",
+  authDomain: "jeihanpraja.firebaseapp.com",
+  projectId: "jeihanpraja",
+  storageBucket: "jeihanpraja.appspot.com",
+  messagingSenderId: "370433155780",
+  appId: "1:370433155780:web:8275122f78924deb7e9f91"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);

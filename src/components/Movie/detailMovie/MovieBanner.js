@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -5,44 +6,47 @@ import Api from "../../../api";
 var baseImgUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
 const MovieBanner = () => {
   const { id } = useParams();
-  const [dataMovie, setDataMovie] = useState();
+  const [backdrop, setBackdrop] = useState('');
+  const [title, setTitle] = useState('');
+  const [overview, setOverview] = useState('');
   useEffect(() => {
     getDetailMovie();
   }, [id]);
 
   const getDetailMovie = () => {
-    Api.get(`movie/${id}?api_key=8152b136a5dad36d2ca7844f884577ba&language=en-US&page=1`)
+    Api.get(`movie/${id}?api_key=8152b136a5dad36d2ca7844f884577ba&language=en-US`)
     .then(function (response) {
       // handle success
-      setDataMovie(response.data)
-      console.log(response);
+      setBackdrop(response.data.poster_path)
+      setTitle(response.data.original_title);
+      setOverview(response.data.overview);
+      console.log(response.data.overview);
   })
   .catch(function (error) {
+    console.log(error);
       // handle error
-      console.log(error);
   }) 
   }
-
     return (
       <div className="flex flex-col w-full h-auto gap-y-8">
         <div className="relative flex w-full h-[810px] bg-slate-200">
           <img
-            src={`${baseImgUrl}${dataMovie.backdrop_path}`}
+            // src={`${baseImgUrl}${backdrop}`}
             alt=""
             className="w-full h-auto aspect-video object-cover"
           />
           <div className="absolute flex w-full h-full top-0 left-0 items-center px-4 md:px-24 bg-black opacity-50">
             <div className="flex flex-col gap-y-2">
               <p className="text-4xl font-semibold ">
-                {dataMovie.original_title}
+                {/* {title} */}
               </p>
-              <p>{dataMovie.genres}</p>
+              <p>-</p>
               <p className="line-clamp-3 max-w-[50%]">
-                {dataMovie.overview}
+                {/* {overview} */}
               </p>
               {/* buttons */}
               <div className="inline-flex gap-x-4">
-                <Link to={null}>
+                <Link>
                   <button className="inline-flex gap-x-3 w-auto h-auto px-4 py-2 items-center bg-slate-300 hover:bg-white text-black font-semibold text-2xl transition-all duration-200">
                     <svg
                       width="20"
@@ -80,10 +84,10 @@ const MovieBanner = () => {
         </div>
         <div className="w-full h-auto px-11">
           <p className="mt-3 mb-1">Description :</p>
-          <p>{dataMovie.overview}</p>
+          {/* <p>{overview}</p> */}
         </div>
       </div>
-    );
+      );
 };
 
 export default MovieBanner;

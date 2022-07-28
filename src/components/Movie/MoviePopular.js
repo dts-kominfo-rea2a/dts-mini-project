@@ -68,7 +68,7 @@ function MoviePopular(){
           {dataMoviePopular.slice(0, 30).map((data) => (
             <Carousel.Item key={data.id}>
               <Link
-                to={`/dts-movies/home/detail/${data.id}`}
+                to={`/project-movies/home/detail/${data.id}`}
                 onMouseEnter={() => setSelected(data.id)}
                 onMouseLeave={() => setSelected(null)}
               >

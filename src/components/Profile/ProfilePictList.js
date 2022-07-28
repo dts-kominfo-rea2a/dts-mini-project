@@ -12,9 +12,6 @@ const ProfilePictList = () => {
   const [isChangeSuccess, setIsChangeSuccess] = useState(false);
   const [data, setData] = useState();
   const imageData = localStorage.getItem("profile");
-
-  const [imageBase64, setImageBase64] = useState();
-
   // first image
   const [firstImagePreview, setFirstImagePreview] = useState("");
 

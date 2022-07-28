@@ -76,7 +76,7 @@ function MovieTop(){
           }
         >
           {/* loop here */}
-          {dataMovieTop.map((item, index) => {
+          {dataMovieTop.slice(0, 10).map((item, index) => {
             return(
             <Carousel.Item>
                 <div className="inline-flex w-full justify-between">

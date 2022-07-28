@@ -8,7 +8,6 @@ import CoverPage from './pages/CoverPage';
 import HomePage from './pages/HomePage';
 import Routers from './pages/Routers';
 import Profile from './pages/Profile';
-import MovieBanner from "./components/Movie/detailMovie/MovieBanner";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -24,12 +23,6 @@ root.render(
           <Route path="/mini-project-movie/home" element={<HomePage />} />
           {/* profile */}
           <Route path="/mini-project-movie/profile" element={<Profile />} />
-          <Route
-            path="/home/detail/:id"
-            element={
-                <MovieBanner />
-            }
-          />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

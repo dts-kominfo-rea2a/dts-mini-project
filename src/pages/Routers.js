@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
 const MainNavigation = React.lazy(() => import("../components/Navbar/Navbar"));
+const MoviesSelected = React.lazy(() => import("./DetailPage"));
 const Home = React.lazy(() => import("./HomePage"));
 const Footer = React.lazy(() => import("../components/Footer/Footer"));
 
@@ -24,6 +25,14 @@ const Routers = () => {
             element={
               <React.Suspense fallback={<p>Loading ...</p>}>
                 <Home />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="/home/detail/:id"
+            element={
+              <React.Suspense fallback={<p>Loading ...</p>}>
+                <MoviesSelected />
               </React.Suspense>
             }
           />
